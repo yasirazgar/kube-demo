@@ -1,0 +1,15 @@
+sudo: required
+language: generic
+
+services:
+  - docker
+
+env:
+  global:
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
