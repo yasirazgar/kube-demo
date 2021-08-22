@@ -8,6 +8,9 @@ env:
   global:
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 
+before_install:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
 deploy:
   provider: script
   script: bash ./deploy.sh
